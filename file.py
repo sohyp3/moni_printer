@@ -1,5 +1,7 @@
-import api
 from telegram.ext import * 
+
+import api
+
 import respones as R 
 
 def start_command(update,context):
