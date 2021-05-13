@@ -19,8 +19,6 @@ class yosh():
         text = text.replace("VIP", "")
 
         matches = re.findall(r"([A-Z]+\s?[A-Z]+[^a-z0-9\W])",text)
-
-        print(text)
         
         self.cur_price = 0
         try:
@@ -33,7 +31,7 @@ class yosh():
 
     def how_many(self,cur):
         self.btc_price = float(client.get_avg_price(symbol=f"BTCUSDT")['price'])
-        self.usdt_limit = 105
+        self.usdt_limit = 100
         self.btc_limit = float(self.usdt_limit / self.btc_price)
         self.cur_amount = int(self.btc_limit/self.cur_price) 
         self.cur_amount = self.cur_amount - int (self.cur_amount*0.01)
@@ -54,7 +52,7 @@ class yosh():
         self.rep()
         
     def price_check(self):
-        self.sell_limit = self.cur_price + (self.cur_price * 0.01)        
+        self.sell_limit = self.cur_price + (self.cur_price * 0.03)        
         self.cur_price_new = float(client.get_avg_price(symbol=f"{self.cur_name}BTC")['price'])
 
         print(f"sell limit = " "%.8f" % self.sell_limit)
