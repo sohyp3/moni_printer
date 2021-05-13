@@ -13,7 +13,7 @@ def hilp_cmd(update,context):
 
     
 def handle_message(update, context):
-    txt = str(update.message.text).lower()
+    txt = str(update.message.text)
     response = R.sample_response(txt)
     update.message.reply_text(response)
 

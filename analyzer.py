@@ -20,7 +20,7 @@ class yosh():
 
         matches = re.findall(r"([A-Z]+\s?[A-Z]+[^a-z0-9\W])",text)
 
-        # print(matches[0])
+        print(text)
         
         self.cur_price = 0
         try:
@@ -31,18 +31,16 @@ class yosh():
             print("invalid currency name. ")
 
 
-        # print("%.8f" % self.cur_price)
-        # print(matches[0])
-
     def how_many(self,cur):
         self.btc_price = float(client.get_avg_price(symbol=f"BTCUSDT")['price'])
-        self.usdt_limit = 9 
+        self.usdt_limit = 105
         self.btc_limit = float(self.usdt_limit / self.btc_price)
         self.cur_amount = int(self.btc_limit/self.cur_price) 
         self.cur_amount = self.cur_amount - int (self.cur_amount*0.01)
         print(self.cur_amount)
 
         self.buy()
+        # self.rep()
         
 
     def buy(self):
