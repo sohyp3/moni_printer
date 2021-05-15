@@ -1,4 +1,5 @@
 from telegram.ext import * 
+from telegram import *
 
 import api
 
@@ -11,12 +12,19 @@ def start_command(update,context):
 def hilp_cmd(update,context):
     update.message.reply_text('Do i look like google?')
 
-    
 def handle_message(update, context):
     txt = str(update.message.text)
+
     response = R.sample_response(txt)
     update.message.reply_text(response)
 
+def caoto(update,context):
+    txt2 = str(update.message.caption)
+    # update.message.reply_text("work mf")
+    response = R.sample_response(txt2)
+    update.message.reply_text(response)
+    
+        
 def error(update,context):
     print(f"Update {update} caused error {context.error} idiot")
 
@@ -29,7 +37,7 @@ def main():
     dp.add_handler(CommandHandler('help',hilp_cmd))  
 
     dp.add_handler(MessageHandler(Filters.text,handle_message))
-    
+    dp.add_handler(MessageHandler(Filters.caption,caoto))
     dp.add_error_handler(error)
 
     updater.start_polling()

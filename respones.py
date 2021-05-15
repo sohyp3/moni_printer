@@ -20,4 +20,6 @@ def sample_response(input_txt):
     if user_message in ('fuck you'):
         return 'ikr life is difficult'
 
+    if 'goat' in user_message:
+        return "hyp3 sama is GOAT\nHYP3 IS THE LORD"
     return 'tf u talkin about?'

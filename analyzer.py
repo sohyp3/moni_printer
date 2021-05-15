@@ -20,6 +20,7 @@ class yosh():
 
         matches = re.findall(r"([A-Z]+\s?[A-Z]+[^a-z0-9\W])",text)
         
+        print(text)
         self.cur_price = 0
         try:
             self.cur_price = float(client.get_avg_price(symbol=f"{matches[0]}BTC")['price'])
@@ -37,8 +38,8 @@ class yosh():
         self.cur_amount = self.cur_amount - int (self.cur_amount*0.01)
         print(self.cur_amount)
 
-        self.buy()
-        # self.rep()
+        # self.buy()
+        self.rep()
         
 
     def buy(self):
@@ -62,7 +63,7 @@ class yosh():
         
         if self.cur_price_new >= self.sell_limit:
             print("hoi")
-            self.sell()
+            # self.sell()
             self.x = 1
 
     def rep(self):
