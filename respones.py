@@ -1,6 +1,7 @@
 import analyzer
 
-def sample_response(input_txt):
+def sample_response(input_txt,datuu):
+    print(datuu)
     user_message_without_lower = str(input_txt)
     user_message = str(input_txt).lower()
     if '%' in user_message:
@@ -10,7 +11,8 @@ def sample_response(input_txt):
         if '%' in user_message:
             return 'false signal'
         else:
-            analyzer.yosh(user_message_without_lower)
+            print(datuu)
+            analyzer.yosh(user_message_without_lower,datuu)
             return 'potential signal'
     
 

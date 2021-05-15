@@ -1,9 +1,14 @@
 from telegram.ext import * 
-from telegram import *
+import telegram
 
 import api
 
 import respones as R 
+
+bot = telegram.Bot(api.bot_api)
+
+def messagu(msg):
+    bot.sendMessage(chat_id= -1001248147733,text= msg)
 
 def start_command(update,context):
     update.message.reply_text('type somtin')
@@ -12,19 +17,21 @@ def start_command(update,context):
 def hilp_cmd(update,context):
     update.message.reply_text('Do i look like google?')
 
+    
 def handle_message(update, context):
     txt = str(update.message.text)
-
-    response = R.sample_response(txt)
+    dateu = update.message.date
+    response = R.sample_response(txt,dateu)
     update.message.reply_text(response)
 
 def caoto(update,context):
     txt2 = str(update.message.caption)
     # update.message.reply_text("work mf")
-    response = R.sample_response(txt2)
+    dateu = update.message.date
+
+    response = R.sample_response(txt2,dateu)
     update.message.reply_text(response)
     
-        
 def error(update,context):
     print(f"Update {update} caused error {context.error} idiot")
 

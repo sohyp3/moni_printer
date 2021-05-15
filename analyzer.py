@@ -10,7 +10,7 @@ import api
 client = Client(api.binance_api_key,api.binance_api_secret)
 
 class yosh():
-    def __init__(self,hehe):
+    def __init__(self,hehe,datee):
         self.text = hehe
         self.checker(self.text)
 
@@ -32,15 +32,49 @@ class yosh():
 
     def how_many(self,cur):
         self.btc_price = float(client.get_avg_price(symbol=f"BTCUSDT")['price'])
-        self.usdt_limit = 100
+        self.usdt_limit = 190
         self.btc_limit = float(self.usdt_limit / self.btc_price)
         self.cur_amount = int(self.btc_limit/self.cur_price) 
         self.cur_amount = self.cur_amount - int (self.cur_amount*0.01)
         print(self.cur_amount)
-
         # self.buy()
-        self.rep()
+        # self.rep()
+        self.oco_buy()
         
+
+    def oco_buy(self):
+        self.sell_limit = self.cur_price + (self.cur_price * 0.03)   
+        self.sell_stop = self.cur_price - (self.cur_price * 0.01)     
+        print(self.sell_limit)
+        print(self.sell_stop)
+
+
+        order = client.create_order(
+            symbol=f'{self.cur_name}BTC',
+            side=SIDE_BUY,
+            type=ORDER_TYPE_MARKET,
+            quantity=self.cur_amount)
+            
+        print(f"bought {self.cur_amount} of {self.cur_name} at " "%.8f" % self.cur_price)
+        
+        orders = client.get_all_orders(symbol=f'{self.cur_name}BTC')
+        for item in orders:
+            x = float(item['cummulativeQuoteQty'])/float(item['executedQty'])        
+        
+        self.cur_price = x           
+        # self.tutu()
+
+    def tutu(self):
+        y = str("%.8f" % self.sell_stop)
+        z = str("%.8f" % self.sell_limit)
+        order = client.create_oco_order(
+            symbol=f'{self.cur_name}BTC',
+            side=SIDE_SELL,
+            stopLimitTimeInForce=TIME_IN_FORCE_GTC,
+            quantity=self.cur_amount,
+            stopPrice=self.sell_stop,
+            price=self.sell_limit)
+        print('don')        
 
     def buy(self):
         order = client.create_order(
@@ -48,7 +82,7 @@ class yosh():
             side=SIDE_BUY,
             type=ORDER_TYPE_MARKET,
             quantity=self.cur_amount)
-
+        
         print(f"bought {self.cur_amount} of {self.cur_name} at " "%.8f" % self.cur_price)
         self.rep()
         
@@ -78,8 +112,10 @@ class yosh():
             side=SIDE_SELL,
             type=ORDER_TYPE_MARKET,
             quantity=self.cur_amount)   
+        self.pr = "sold {self.cur_amount} of {self.cur_name} at " "%.8f" % self.cur_price_new
+        print(self.pr)
+        # self.returner(self.pr)
 
-        print(f"sold {self.cur_amount} of {self.cur_name} at " "%.8f" % self.cur_price_new)
- 
-
+    # def returner (self, msg):
+    #     return msg
         
