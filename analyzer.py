@@ -75,17 +75,18 @@ class yosh():
 
         print(f"bought {self.cur_amount} of {self.cur_name} at " "%.8f" % self.cur_price)
         # ==============
-        # making OCO not working..                 
-        y = str("%.8f" % self.sell_stop)
-        z = str("%.8f" % self.sell_limit)
-        order = client.create_oco_order(
-            symbol=f'{self.cur_name}BTC',
-            side=SIDE_SELL,
-            stopLimitTimeInForce=TIME_IN_FORCE_GTC,
-            quantity=self.cur_amount,
-            stopPrice=self.sell_stop,
-            price=self.sell_limit)
-        print('don')   
+        # making OCO not working.. 
+                        
+        # y = str("%.8f" % self.sell_stop)
+        # z = str("%.8f" % self.sell_limit)
+        # order = client.create_oco_order(
+        #     symbol=f'{self.cur_name}BTC',
+        #     side=SIDE_SELL,
+        #     stopLimitTimeInForce=TIME_IN_FORCE_GTC,
+        #     quantity=self.cur_amount,
+        #     stopPrice=self.sell_stop,
+        #     price=self.sell_limit)
+        # print('don')   
 
 
     # buy market
