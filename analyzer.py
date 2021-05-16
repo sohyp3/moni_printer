@@ -20,7 +20,6 @@ class yosh():
 
         matches = re.findall(r"([A-Z]+\s?[A-Z]+[^a-z0-9\W])",text)
         
-        print(text)
         self.cur_price = 0
         try:
             self.cur_price = float(client.get_avg_price(symbol=f"{matches[0]}BTC")['price'])
