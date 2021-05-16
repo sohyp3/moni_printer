@@ -25,6 +25,8 @@ class yosh():
         # the way i get the currency name is by getting the words with all CAPS 
         # [Forwarded from Crypto VIP Paid signal™] so we gotta remove that VIP
         text = text.replace("VIP", "")
+        text = text.replace("BTC", "")
+        
         # searching for all caps
         matches = re.findall(r"([A-Z]+\s?[A-Z]+[^a-z0-9\W])",text)
         
