@@ -10,10 +10,14 @@ if not installed [download from here](https://www.python.org/downloads/)
 get your telegram bot api code from BotFather
 and your private and public keys from binance 
 
-Create a `api.py` file and the keys below
+Create a `api.py` file
+the formate should be like below 
+add your keys 
 ``` 
 bot_api = 'Telegram Bot API'
 
 binance_api_key = ''
 binance_api_secret = '' 
 ```
+
+and you should be good to go 
