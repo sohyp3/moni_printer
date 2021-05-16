@@ -12,7 +12,7 @@ bot = telegram.Bot(api.bot_api)
 
 # To send messages Currently inactive
 def messagu(msg):
-    bot.sendMessage(chat_id= -1001248147733,text= msg)
+    bot.sendMessage(chat_id= -1001296601205,text= msg)
 
 # Command replies (/start)
 def start_command(update,context):

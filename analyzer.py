@@ -2,6 +2,7 @@ from binance.client import Client
 from binance.enums import *
 import schedule 
 
+import sendar
 import re 
 
 import api
@@ -74,8 +75,9 @@ class yosh():
             x = float(item['cummulativeQuoteQty'])/float(item['executedQty'])        
         
         self.cur_price = x 
-
-        print(f"bought {self.cur_amount} of {self.cur_name} at " "%.8f" % self.cur_price)
+        self.tmppppp = f"bought {self.cur_amount} of {self.cur_name} at " "%.8f" % self.cur_price
+        print(self.tmppppp)
+        sendar.messagu(self.tmppppp)
         # ==============
         # making OCO not working.. 
                         
