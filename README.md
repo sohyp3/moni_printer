@@ -21,3 +21,5 @@ binance_api_secret = ''
 ```
 
 and you should be good to go 
+
+in analyzer.py you can close the functions for optimal view
