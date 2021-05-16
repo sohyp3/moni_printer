@@ -8,4 +8,12 @@ if not installed [download from here](https://www.python.org/downloads/)
 `pip3 install -r requirements.txt` 
 
 get your telegram bot api code from BotFather
-and your private and public keys from binance and add them in api.py
+and your private and public keys from binance 
+
+Create a `api.py` file and the keys below
+``` 
+bot_api = 'Telegram Bot API'
+
+binance_api_key = ''
+binance_api_secret = '' 
+```
