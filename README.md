@@ -1,4 +1,4 @@
-# Moniii
+
 ### The project still pre-alpha so there is a lot of issues 
 
 you need to have python3 and pip3 installed 
